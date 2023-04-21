@@ -1,6 +1,6 @@
     
 <h1>
-  Director <%= @the_director.id %> details
+  Actor <%= @the_actor.id %> details
 </h1>
 
 <a href="/directors" class="btn btn-block btn-outline-secondary">
@@ -9,7 +9,7 @@
 
 &nbsp;|&nbsp;
 
-<a href="/delete_director/<%= @the_director.id %>" class="btn btn-block btn-outline-secondary">
+<a href="/delete_director/<%= @the_actor.id %>" class="btn btn-block btn-outline-secondary">
   Delete director
   <small>(Building this link is not required. It's an optional stretch goal; but, you have the tools if you want to give it a try.)</small>
 </a>
@@ -21,42 +21,42 @@
     Name
   </dt>
   <dd>
-    <%= @the_director.name %>
+    <%= @the_actor.name %>
   </dd>
 
   <dt>
     Dob
   </dt>
   <dd>
-    <%= @the_director.dob %>
+    <%= @the_actor.dob %>
   </dd>
 
   <dt>
     Bio
   </dt>
   <dd>
-    <%= @the_director.bio %>
+    <%= @the_actor.bio %>
   </dd>
 
   <dt>
     Image
   </dt>
   <dd>
-    <%= @the_director.image %>
+    <%= @the_actor.image %>
   </dd>
 
   <dt>
     Created at
   </dt>
   <dd>
-    <%= time_ago_in_words(@the_director.created_at) %> ago
+    <%= time_ago_in_words(@the_actor.created_at) %> ago
   </dd>
 
   <dt>
     Updated at
   </dt>
   <dd>
-    <%= time_ago_in_words(@the_director.updated_at) %> ago
+    <%= time_ago_in_words(@the_actor.updated_at) %> ago
   </dd>
 </dl>
 
@@ -69,10 +69,6 @@
       <%=a_film.id%>
     </td>
     <td>
-      <img src="https://robohash.org/
-      <%=a_film.image%>?set=set4">
-    </td>
-    <td>
       <%=a_film.title%>
     </td>
     <td>
@@ -80,6 +76,9 @@
     </td>
     <td>
       <%= Director.where({ :id => a_film.director_id}).at(0).name%>
+    </td>
+       <td>
+      <%= @char_movie_actor_in_id %>
     </td>
     <td>
       <a href="/movies/<%=a_film.id %>">
