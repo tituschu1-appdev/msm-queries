@@ -13,21 +13,13 @@ class ActorsController < ApplicationController
 
     @the_actor = Actor.where({ :id => the_id}).at(0)
 
-    #char_mov = Character.where({ :actor_id => @the_actor.id}).at(0).name
-
-    #@movie_actor_in_id = Character.where({ :actor_id => @the_actor.id}).at(0).movie_id
-    
-    # Character.where({ :actor_id => 1}).at(0).movie_id
-
     char_movie_actor_in_id = Character.where({ :actor_id => @the_actor.id}).at(0).movie_id
 
 
-    @char_movie_actor_in_id = Character.where({ :actor_id => @the_actor.id}).where({ :movie_id => char_movie_actor_in_id}).at(0).name
+    @char_movie_actor_in_id_name = Character.where({ :actor_id => @the_actor.id}).where({ :movie_id => char_movie_actor_in_id}).at(0).name
 
     @actor_filmography = Movie.where({ :id => char_movie_actor_in_id})
-    #@filmography = Character.where({ :actor_id => @the_actor.id})
-    #movie_actor_in_id = Character.where({ :actor_id => 2}).where({ :movie_id =}).at(0).id
-    # Character.where({ :actor_id => 144}).where({ :movie_id => 11}).at(0).name
+
 
    render ({ :template => "actor_templates/show.html.erb" })
  end
