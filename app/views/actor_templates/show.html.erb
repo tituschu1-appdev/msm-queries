@@ -55,25 +55,22 @@
 <h2>Filmography</h2>
 
 <table border=1>
-<% @actor_filmography.each do |b_film|%>
+<% @actor_characters.each do |b_film|%>
   <tr>
     <td>
-      <%=b_film.id%>
+      <%=Movie.where({ :id => b_film.movie_id}).at(0).title%>
     </td>
     <td>
-      <%=b_film.title%>
+      <%=Movie.where({ :id => b_film.movie_id}).at(0).year%>
     </td>
     <td>
-      <%=b_film.year%>
+      <%=Director.where({ :id => Movie.where({ :id => b_film.movie_id}).at(0).director_id}).at(0).name%>
     </td>
     <td>
-      <%= Director.where({ :id => b_film.director_id}).at(0).name%>
-    </td>
-       <td>
-      <%= @char_movie_actor_in_id_name %>
+      <%=b_film.name%>
     </td>
     <td>
-      <a href="/movies/<%=b_film.id %>">
+      <a href="/movies/<%=b_film.movie_id %>">
         Show details
       </a>
     </td>

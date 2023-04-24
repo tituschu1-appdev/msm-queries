@@ -20,6 +20,9 @@ class ActorsController < ApplicationController
 
     @actor_filmography = Movie.where({ :id => char_movie_actor_in_id})
 
+    @actor_characters = Character.where({ :actor_id => @the_actor.id})
+
+# Character.where({ :actor_id => 2})
 
    render ({ :template => "actor_templates/show.html.erb" })
  end
